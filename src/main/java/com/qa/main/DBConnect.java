@@ -15,12 +15,31 @@ public class DBConnect {
 	private ResultSet rs;
 	
 	public DBConnect() throws SQLException{
-		con = DriverManager.getConnection(DBConfig.url, DBConfig.user, DBConfig.password);
+//		System.out.println(DBConfig.url);
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc_customer", DBConfig.user, DBConfig.password);
 	}
 	
 	// CREATE
 
+	public void create(String name) throws SQLException {
+		String sql = "INSERT INTO customer (name) VALUES (?)";
+		ps = con.prepareStatement(sql);
+		ps.setString(1, name);
+		ps.execute();
+	}
 	// READ
+	public void read() throws SQLException {
+		String sql = "SELECT * FROM customer";
+		ps = con.prepareStatement(sql);
+		ps.executeQuery();
+		if(!rs.next()) {
+			System.out.println("Nothing here");
+		}else {
+			do {
+				System.out.println(String.format("ID: %d, Name: %s", rs.getInt("id"), rs.getString("name")));
+			}while(rs.next());
+		}
+	}
 	
 	// UPDATE
 	
