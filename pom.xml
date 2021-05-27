@@ -30,7 +30,7 @@
             <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>com.qa.customer.Runner</mainClass>
+                        <mainClass>com.qa.main.Runner</mainClass>
                     </manifest>
                 </archive>
             </configuration>
@@ -47,7 +47,7 @@
         <configuration>
             <archive>
                 <manifest>
-                    <mainClass>com.qa.customer.Runner</mainClass>
+                    <mainClass>com.qa.main.Runner</mainClass>
                 </manifest>
             </archive>
             <descriptorRefs>
